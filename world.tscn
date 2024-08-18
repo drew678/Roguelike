@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0tfng3aywsgy"]
+
+[ext_resource type="Texture2D" uid="uid://dwo0qaps7bdmr" path="res://art/placeholder.png" id="1_go4pv"]
+[ext_resource type="Texture2D" uid="uid://dm3g6814ypk8k" path="res://art/selector.png" id="2_uhi4n"]
+[ext_resource type="Script" path="res://TileMap.gd" id="3_b6th6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubf0k"]
+texture = ExtResource("1_go4pv")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yk1xm"]
+texture = ExtResource("2_uhi4n")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7gfmj"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_ubf0k")
+sources/2 = SubResource("TileSetAtlasSource_yk1xm")
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7gfmj")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("3_b6th6")
